@@ -1,0 +1,14 @@
+# Ignore the FAISS vector database folder
+faiss_store/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore Streamlit's local state and configurations
+.streamlit/
+
+# Ignore virtual environments (if you use them)
+venv/
+.venv/
+env/
