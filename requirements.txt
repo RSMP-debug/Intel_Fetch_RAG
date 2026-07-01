@@ -1,5 +1,6 @@
 langchain-community
 langchain-ollama
 streamlit
-unstructured python-magic-bin
+unstructured
+python-magic-bin
 faiss-cpu
