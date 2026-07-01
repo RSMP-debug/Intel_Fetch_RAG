@@ -54,7 +54,7 @@ To guarantee ultra-low latency execution and minimize compute/network degradatio
 Make sure that you clone the repositery
 ### 1. Engine Installation
 Ensure you have **Ollama** active on your system. If not installed, download the client from [ollama.com](https://ollama.com).
-Open your terminal and pull the exact embedding and inference models required by this project:
+Open your `System terminal` and pull the exact embedding and inference models required by this project:
 
 ```bash
 ollama pull llama3.2:1b
@@ -63,7 +63,7 @@ ollama pull nomic-embed-text:latest
 
 ### 2.Install Requirements
 
-Inside the terminal of your code editor type these commands
+Inside the `terminal of your code editor` type these commands
 ```bash
 pip install -r requirements.txt
 ```
