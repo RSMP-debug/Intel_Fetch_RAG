@@ -1,4 +1,5 @@
 import os
+import re
 import streamlit as st
 from langchain_community.vectorstores import FAISS
 from langchain_core.prompts import ChatPromptTemplate
@@ -46,20 +47,20 @@ dynamic_bar=st.empty()
 st.sidebar.title("NEWS RESARCH URLS")
 urls=[]
 with st.sidebar.form(key="input_form"):
-    clean_email=st.text_input("Enter Email:")
+    clean_email=st.text_input("Enter Email:").strip()
     for i in range(3):
         url_input=st.text_input(f"url{i+1}")
         if url_input.strip():
             urls.append(url_input)
     click=st.form_submit_button("process urls")
 
-
+EMAIL_REGEX = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
 
 if click:
-    if not clean_email or "@" not in clean_email or "." not in clean_email:
+    if not clean_email or not re.match(EMAIL_REGEX, clean_email):
         st.sidebar.error("❌ A valid email is required to configure network request headers.")
-    elif(len(urls)==0):
-        st.sidebar.error("❌ Atleast one valid link is required to configure network request headers.")
+    elif len(urls) == 0:
+        st.sidebar.error("❌ At least one valid link is required to configure network request headers.")
     else:
         dynamic_bar.text("Loading the data....")
         docs = load_and_split_urls(urls, clean_email)
